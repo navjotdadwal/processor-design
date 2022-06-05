@@ -1,5 +1,6 @@
 // Project made for computer architecture subject 
-
+// A processor which can adopt any specifications according to the requirements 
+// It is based on the harvard architecture
 /*
 program of special processor made in a project using the concepts of computer architecture
 */
@@ -180,8 +181,7 @@ vector<vector<int>> executeT0T1()
 
 int main()
 {
-  int sanity;
-  BYTE opcode;
+  int sanity; // for iterating on the different lines of the program 
 
   printf("8 bit processor\n");
 
@@ -193,8 +193,10 @@ int main()
   IR=0;
   Acc=0;
   MAR=0;
+  
   // Initializing ROM
-  // LDA adr
+  
+  // 1. LDA adr
   vector<vector<int>> temp;
   vector<int> tp;
   // T0:
@@ -225,7 +227,7 @@ int main()
   ROM.pb(temp);
   temp.clear();
 
-  // JMP adr
+  // 2. JMP adr
   // T0:
   tp.pb(1),tp.pb(3);
   temp.pb(tp);
@@ -254,7 +256,7 @@ int main()
   ROM.pb(temp);
   temp.clear();
 
-  // STA adr
+  // 3. STA adr
   // T0:
   tp.pb(1),tp.pb(3);
   temp.pb(tp);
@@ -283,7 +285,7 @@ int main()
   ROM.pb(temp);
   temp.clear();
 
-  // IN
+  // 4. IN
   // T0:
   tp.pb(1),tp.pb(3);
   temp.pb(tp);
@@ -312,7 +314,7 @@ int main()
   ROM.pb(temp);
   temp.clear();
 
-  // OUT
+  // 5. OUT
   // T0:
   tp.pb(1),tp.pb(3);
   temp.pb(tp);
@@ -341,6 +343,7 @@ int main()
   ROM.pb(temp);
   temp.clear();
   
+  // RAM for storing data 
   for(int i=0;i<20;i++)
     mem.pb(i);
 
